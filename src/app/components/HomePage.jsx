@@ -58,13 +58,14 @@ export default function HomePage() {
       </h1>
 
       <div className="mb-6 max-w-md mx-auto">
-        <input
-          type="text"
-          placeholder="Search for a breed..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
+      <input
+  type="text"
+  placeholder="Search for a breed..."
+  value={searchQuery}
+  onChange={(e) => setSearchQuery(e.target.value)}
+  className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black dark:text-white"
+/>
+
       </div>
 
       <div className="mx-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-14 ">
