@@ -10,7 +10,7 @@ export default function HomePage() {
   const [filteredBreeds, setFilteredBreeds] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [searchQuery, setSearchQuery] = useState(""); 
+  const [searchQuery, setSearchQuery] = useState("");
 
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(6);
@@ -31,18 +31,21 @@ export default function HomePage() {
 
   useEffect(() => {
     if (searchQuery === "") {
-      setFilteredBreeds(breeds); 
+      setFilteredBreeds(breeds);
     } else {
       const filtered = breeds.filter((breed) =>
         breed.attributes.name.toLowerCase().includes(searchQuery.toLowerCase())
       );
-      setFilteredBreeds(filtered); 
+      setFilteredBreeds(filtered);
     }
   }, [searchQuery, breeds]);
 
   const indexOfLastBreed = currentPage * itemsPerPage;
   const indexOfFirstBreed = indexOfLastBreed - itemsPerPage;
-  const currentBreeds = filteredBreeds.slice(indexOfFirstBreed, indexOfLastBreed);
+  const currentBreeds = filteredBreeds.slice(
+    indexOfFirstBreed,
+    indexOfLastBreed
+  );
 
   const totalPages = Math.ceil(filteredBreeds.length / itemsPerPage);
 
@@ -58,14 +61,13 @@ export default function HomePage() {
       </h1>
 
       <div className="mb-6 max-w-md mx-auto">
-      <input
-  type="text"
-  placeholder="Search for a breed..."
-  value={searchQuery}
-  onChange={(e) => setSearchQuery(e.target.value)}
-  className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black dark:text-white"
-/>
-
+        <input
+          type="text"
+          placeholder="Search for a breed..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black dark:text-black"
+        />
       </div>
 
       <div className="mx-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-14 ">
@@ -75,28 +77,26 @@ export default function HomePage() {
       </div>
 
       <div className="flex justify-center items-center mt-6 space-x-4">
-  <button
-    onClick={() => paginate(currentPage - 1)}
-    disabled={currentPage === 1}
-    className="px-4 py-2 bg-gray-200 text-gray-800 rounded-md"
-  >
-    Previous
-  </button>
+        <button
+          onClick={() => paginate(currentPage - 1)}
+          disabled={currentPage === 1}
+          className="px-4 py-2 bg-gray-200 text-gray-800 rounded-md"
+        >
+          Previous
+        </button>
 
-  <span className="text-gray-700 font-semibold text-xl">
-    Page {currentPage} of {totalPages}
-  </span>
+        <span className="text-gray-700 font-semibold text-xl">
+          Page {currentPage} of {totalPages}
+        </span>
 
-  <button
-    onClick={() => paginate(currentPage + 1)}
-    disabled={currentPage === totalPages}
-    className="px-4 py-2 bg-gray-200 text-gray-800 rounded-md"
-  >
-    Next
-  </button>
-</div>
-
-     
+        <button
+          onClick={() => paginate(currentPage + 1)}
+          disabled={currentPage === totalPages}
+          className="px-4 py-2 bg-gray-200 text-gray-800 rounded-md"
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 }
