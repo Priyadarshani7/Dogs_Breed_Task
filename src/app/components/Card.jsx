@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Card = ({ breed }) => {
   return (
-    <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-transform transform hover:scale-105">
+    <div className="p-6 bg-white rounded-lg border border-gray-300 hover:shadow-xl transition-transform transform hover:scale-105">
       <h2 className="text-2xl font-semibold text-gray-800 mb-2">
         {breed.attributes.name}
       </h2>
@@ -40,7 +40,7 @@ const Card = ({ breed }) => {
       </div>
 
       <Link href={`/breeds/${breed.id}`}>
-        <button className="w-full bg-black text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-all duration-300 ease-in-out transform hover:scale-105">
+        <button className="w-full bg-black text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-all duration-300 ease-in-out transform hover:scale-105">
           View More Details
         </button>
       </Link>

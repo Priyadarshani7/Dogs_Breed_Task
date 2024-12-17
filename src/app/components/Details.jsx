@@ -2,7 +2,7 @@ import React from "react";
 
 const Details = ({ breed }) => {
   return (
-    <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition w-full max-w-lg mx-auto">
+    <div className="p-6 bg-white rounded-lg border border-gray-300 hover:shadow-lg transition w-full max-w-lg mx-auto">
       <h2 className="text-2xl font-semibold text-gray-800 mb-2">
         {breed.attributes.name}
       </h2>
